@@ -1,0 +1,57 @@
+﻿@model WebApp.Models.AccountDTO
+
+@{
+    ViewData["Title"] = "CreateAccount";
+    AccountDTO account = ViewBag.acc;
+    if (account == null) account = new AccountDTO();
+}
+
+<h1>CreateAccount</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateAccount" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control"  required ="" value="@account.FullName"/>
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control"value="@account.Phone" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control"  value="@account.Address"/>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" required=""  value="@account.Username"/>
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" required="" value="@account.Password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Confirm" class="control-label"></label>
+                <input asp-for="Confirm" class="form-control" required="" />
+                <span asp-validation-for="Confirm" class="text-danger"></span>
+            </div>
+            <h3 style="color:red">@ViewBag.Mess</h3>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
